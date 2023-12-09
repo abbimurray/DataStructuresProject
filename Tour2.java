@@ -4,7 +4,15 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 
-public class TourOfParis {
+
+/*option 1 -- need to just make it so that it works if the user enters "graph.txt", 
+at the moment have it working so that the first thing that happens is it loads the file and processes the data
+
+option 2 -- works as long as you put it in exactly as it is in the file as in Eiffel Tower and no spaces after the word, need to get it working for lowercase too maybe?
+option 3 and 4 working for me but likewise have to be typed in the same way they are in the graph file
+option 5, 6 haven't gotten there yet, the methods i had previously kept giving loads of out of bounds errors 
+*/
+public class Tour2 {
     private static double[][] edges; // Adjacency matrix to store edges
     private static String[] siteNames; // array to store site names
     private static double[][] coordinates; //to store latitude and longitude
@@ -175,24 +183,6 @@ public class TourOfParis {
                 case 5:
                     System.out.println("Option 5: Enter a site name to display all connected sites");
                     System.out.println("Enter site name: ");
-                    String siteNameToDisplay = scanner.next();
-                    int indexOfSite = findNodeIndex(siteNameToDisplay);
-
-                    if (indexOfSite != -1) 
-                    {
-                        System.out.println("Connected sites to " + siteNameToDisplay + ":");
-                        for (int i = 0; i < siteNames.length; i++) 
-                        {
-                            if (edges[indexOfSite][i] > 0) 
-                            {
-                                System.out.println(siteNames[i] + " - Distance: " + edges[indexOfSite][i]);
-                            }
-                        }
-                    } 
-                    else 
-                    {
-                        System.out.println("Site not found.");
-                    }
                     break;
 
                 case 6:
