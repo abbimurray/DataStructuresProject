@@ -196,7 +196,35 @@ public class TourOfParis {
                     break;
 
                 case 6:
-                    System.out.println("Option 6: Enter a site + Display closest site ");
+                System.out.println("Option 6: Enter a site + Display closest site ");
+                siteName = scanner.nextLine(); // Read the site name as a string
+                siteIndex = findNodeIndex(siteName);
+                double closestEdge = Double.MAX_VALUE;
+                String closestSite = "";
+                int closestSiteIndex = 0;
+                int j = 0;
+                for(int i = 0; i < siteNames.length; i++)
+                {
+                    if(edges[siteIndex][i] != 0) //If there is an edge...
+                    {
+                        
+                        if(edges[siteIndex][i] < closestEdge) // The current edge is less than the closest edge
+                        {
+                            closestEdge = edges[siteIndex][i]; //Saves closest edge
+                            closestSite = siteNames[i]; //Saves corresponding site name
+                            closestSiteIndex = i; //Saves the current index for use outside of loop
+                        }
+
+                    }
+                }
+
+                System.out.print(closestEdge + " : " + closestSite + " - "); //Prints closest edge & Site name
+                while(j < 2)
+                {
+                    System.out.print(coordinates[closestSiteIndex][j] + " " ); //Prints coordinates
+                    j++;
+                }
+ 
                     break;
 
                 case 7:
